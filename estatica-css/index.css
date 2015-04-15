@@ -1,0 +1,36 @@
+body {
+	background-color:azure;
+}
+
+h1 {
+	color:navy;
+	border-style:groove;
+	padding:40px 10px 10px 10px;
+	text-align:center;
+	font:45px bold Verdana, sans-serif;
+}
+
+h2 {
+	color:navy;
+	text-align:center;
+	font:35px, calibri;
+}
+
+p {
+	text-indent:10px;
+	font:20px Georgia, Serif;
+	margin-left:10px;
+}
+
+ul {
+	font:20px bold Georgia, Serif;
+	margin-left:20px;
+}
+
+a {
+	text-align:center;
+}
+
+form {
+	text-align:center;
+}

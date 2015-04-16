@@ -3,11 +3,12 @@ body {
 }
 
 h1 {
-	color:navy;
+	background-image:url(bg-h1.png);
+	color:darkslateblue;
 	border-style:groove;
-	padding:40px 10px 10px 10px;
+	padding:100px 10px 20px 10px;
 	text-align:center;
-	font:45px bold Verdana, sans-serif;
+	font:70px bold Verdana, sans-serif;
 }
 
 h2 {
@@ -27,7 +28,7 @@ ul {
 	margin-left:20px;
 }
 
-a {
+a:link {
 	text-align:center;
 }
 

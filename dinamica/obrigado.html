@@ -57,25 +57,34 @@
 				<div class="row">
 				  <div class="col-lg-6">
 					<div class="input-group">
-					<input type="text" class="form-control" placeholder="Digite assuntos sobre sistemas de informação" aria-label="...">
+					<input type="text" class="form-control" value="" placeholder="Digite assuntos sobre sistemas de informação" aria-label="search">
 					<span class="input-group-addon">
-						<input type="checkbox" aria-label="...">
+						<input type="checkbox" id="checkStudy" aria-label="search">
 					</span>
 					<span class="input-group-btn">
-						<button class="btn btn-default" type="button">Adicionar à lista</button>
+						<button class="btn btn-default" id="list-addon" type="button">Adicionar à lista</button>
 					</span>
 					</div><!-- /input-group -->
 				  </div><!-- /.col-lg-6 -->
 				</div><!-- /.row -->
 			</div>
-
 		</div> <!-- /container -->
+
+		<div class="center-block">
+			<table class="table table-bordered" id="subject-table" >
+				<tr>
+					<th>Assunto</th>
+					<th>Já estudado</th>
+				</tr>
+			</table>
+		</div>
 
 		<!-- Bootstrap core JavaScript
 		================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script src="/js/bootstrap.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="dynamic.js"></script>
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 		<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 	</body>

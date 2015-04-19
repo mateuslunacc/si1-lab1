@@ -5,10 +5,7 @@ body {
 
 .starter-template {
 	padding-top: 50px;
-}
 
-.center-block {
-	text-align: center;
 }
 
 th {
@@ -17,4 +14,9 @@ th {
 
 .search {
 	text-align:center;
+}
+
+.form-horizontal {
+	padding-top: 50px;
+	padding-bottom: 50px;
 }

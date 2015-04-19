@@ -31,7 +31,6 @@
 	</head>
 
 	<body>
-
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container">
 				<div class="navbar-header">
@@ -53,30 +52,53 @@
 		</nav>
 
 		<div class="container">
-			<div class="starter-template">				
-				<div class="row">
-				  <div class="col-lg-6">
-					<div class="input-group">
-					<input type="text" class="form-control" value="" placeholder="Digite assuntos sobre sistemas de informação" aria-label="search">
-					<span class="input-group-addon">
-						<input type="checkbox" id="checkStudy" aria-label="search">
-					</span>
-					<span class="input-group-btn">
-						<button class="btn btn-default" id="list-addon" type="button">Adicionar à lista</button>
-					</span>
-					</div><!-- /input-group -->
-				  </div><!-- /.col-lg-6 -->
-				</div><!-- /.row -->
-			</div>
-		</div> <!-- /container -->
+			<div class="row">
+				<form class="form-horizontal">
+					<div class="form-group">
+						<label class="sr-only" for="pwd">Assunto</label>
+						<div class="col-md-4 col-md-offset-4">
+							<input type="text" maxlength="50" class="form-control" id="pwd" placeholder="Digite assuntos sobre sistemas de informação" autofocus="true">
 
-		<div class="center-block">
-			<table class="table table-bordered" id="subject-table" >
-				<tr>
-					<th>Assunto</th>
-					<th>Já estudado</th>
-				</tr>
-			</table>
+						</div>
+					</div>
+					<button class="btn btn-info" id="addtolist" type="button">Adicionar à lista</button>
+					<div class="checkbox">
+						<label><input type="checkbox" id="para-estudar"> Para estudar?</label>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<table class="table table-bordered">
+						<thead>
+						<tr class="active">
+							<th>Assuntos Estudados</th>
+						</tr>
+						</thead>
+						<tbody id="assuntos-estudados">
+
+						</tbody>
+
+					</table>
+				</div>
+				<div class="col-md-6">
+					<table class="table table-bordered">
+						<thead>
+						<tr class="active">
+							<th>Assuntos para estudar</th>
+						</tr>
+						</thead>
+						<tbody id="assuntos-para-estudar">
+
+						</tbody>
+
+					</table>
+				</div>
+
+			</div>
 		</div>
 
 		<!-- Bootstrap core JavaScript

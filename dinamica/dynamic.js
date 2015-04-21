@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
-    $("#addtolist").on("click", function() {
-        if($(".form-control").val().length > 0) {
 
+    $(".form-horizontal").submit(function(event) {
+        if($("input:first").val().length > 0){
             if($("#para-estudar").is(":checked")){
                 $("#assuntos-para-estudar").append(
                     "<tr><td class='warning'>" +  $(".form-control").val() + "</td></tr>");
@@ -10,8 +10,13 @@ $(document).ready(function() {
                 $("#assuntos-estudados").append(
                     "<tr><td class='success'>" +  $(".form-control").val() + "</td></tr>");
             }
+            event.preventDefault();
         }
 
     });
+
+    //$("#addtolist").on("click", function() {
+
+
 
 });

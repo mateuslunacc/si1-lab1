@@ -1,18 +1,72 @@
-$(document).ready(function() {
-
-	$("#teste").show("<b></b>");
-	$(".form-horizontal").submit(function(event) {
-		if($("input:first").val().length > 0){
-			var inputFromForm = $(".form-control").val();
-			
-			if($("#para-estudar").is(":checked")){
-				$("#assuntos-para-estudar").append(
-					"<tr><td class='warning'>" + inputFromForm + "</td></tr>");
-			} else {
-				$("#assuntos-estudados").append(
-					"<tr><td class='success'>" + inputFromForm + "</td></tr>");
-			}
-			event.preventDefault();
+function removeAssuntos () {
+	$("td").each(function() {
+		if($(this).attr("class") == 'info') {
+			$(this).remove();
 		}
 	});
+}
+
+$(document).ready(function() {
+	//Adicionar assunto
+	$(".form-horizontal").submit(function(event) {
+		if($("input:first").val().length > 0){
+			$("#assuntos-para-estudar").append("<tr><td class='warning'>" + $(".form-control").val() + "</td></tr>");
+			event.preventDefault();
+		}
+		$("#subject-form").prop("value", ""); //limpa o campo após submeter
+	});
+	//Selecionar assunto
+	$(document).on("click", "td", function() {
+		//muda a cor do assunto
+		var contentType = $(this).attr("class");
+		var colorOfSubject = '';
+		
+		if(contentType != 'info') {
+			colorOfSubject = "info";
+		} else {
+			if ($(this).parent().parent().attr("id") == 'assuntos-estudados'){
+				colorOfSubject = "success";
+			} else {
+				colorOfSubject = "warning";
+			}
+		}
+		$(this).prop("class", colorOfSubject);
+		
+		//ativa os botoes add e remove
+		var selected = false;
+		var selectedAStudied = false;
+		$("#assuntos-estudados td").each(function() {
+			if($(this).attr("class") == 'info') {
+				selected = true;
+				selectedAStudied = true;
+				return false;
+			}
+		});
+		if(selected == false) {
+			$("#assuntos-para-estudar td").each(function() {
+				if($(this).attr("class") == 'info') {
+					selected = true;
+					return false;
+				}
+			});
+		}
+		$("#remove-subject").prop("disabled", (selected == false));
+		$("#add-to-studied").prop("disabled", (selected == false || selectedAStudied == true));
+	});
+	
+	//Remover
+	$("#remove-subject").on("click", function() {
+		removeAssuntos();
+	});
+
+	//Adicionar para assuntos estudados
+	$("#add-to-studied").on("click", function() {
+		$("#assuntos-para-estudar td").each(function() {
+			if($(this).attr("class") == 'info') {
+				$("#assuntos-estudados").append("<tr><td class='success'>" + $(this).text() + "</td></tr>");
+			}
+		});
+		removeAssuntos();
+	});
+
 });

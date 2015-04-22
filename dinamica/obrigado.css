@@ -3,20 +3,11 @@ body {
 	text-align: center;
 }
 
-.starter-template {
-	padding-top: 50px;
-
-}
-
 th {
 	text-align: center;
 }
 
-.search {
-	text-align:center;
-}
-
-.form-horizontal {
-	padding-top: 50px;
-	padding-bottom: 50px;
+.row {
+	padding-top: 20px;
+	padding-bottom: 20px;
 }

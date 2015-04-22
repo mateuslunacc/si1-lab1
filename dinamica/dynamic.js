@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+	$("#teste").show("<b></b>");
 	$(".form-horizontal").submit(function(event) {
 		if($("input:first").val().length > 0){
 			var inputFromForm = $(".form-control").val();
@@ -13,11 +14,5 @@ $(document).ready(function() {
 			}
 			event.preventDefault();
 		}
-
-	}
-
-
-
-
-
+	});
 });

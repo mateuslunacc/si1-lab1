@@ -9,10 +9,10 @@ function removeAssuntos () {
 $(document).ready(function() {
 	//Adicionar assunto
 	$(".form-horizontal").submit(function(event) {
-		if($("input:first").val().length > 0){
+		//if($("input:first").val().length > 0){
 			$("#assuntos-para-estudar").append("<tr><td class='warning'>" + $(".form-control").val() + "</td></tr>");
 			event.preventDefault();
-		}
+		//}
 		$("#subject-form").prop("value", ""); //limpa o campo após submeter
 	});
 	//Selecionar assunto

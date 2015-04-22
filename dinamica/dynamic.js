@@ -57,6 +57,7 @@ $(document).ready(function() {
 	//Remover
 	$("#remove-subject").on("click", function() {
 		removeAssuntos();
+		$("#remove-subject").prop("disabled", true);
 	});
 
 	//Adicionar para assuntos estudados

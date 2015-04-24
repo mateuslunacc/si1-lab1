@@ -1,18 +1,24 @@
 function removeAssuntos () {
 	$("td").each(function() {
 		if($(this).attr("class") == 'info') {
-			$(this).remove();
+			$(this).hide("slow", function() {
+				$(this).remove();
+			});
 		}
 	});
+	$("#remove-subject").prop("disabled", true);
+	$("#add-to-studied").prop("disabled", true);
+	$("#yt-search").prop("disabled", true);
 }
 
 $(document).ready(function() {
 	//Adicionar assunto
 	$(".form-horizontal").submit(function(event) {
-		//if($("input:first").val().length > 0){
-			$("#assuntos-para-estudar").append("<tr><td class='warning'>" + $(".form-control").val() + "</td></tr>");
-			event.preventDefault();
-		//}
+		$("#subjects").show("slow");
+		
+		$("#assuntos-para-estudar").append("<tr><td class='warning'>" + $(".form-control").val() + "</td></tr>");
+		$("#assuntos-para-estudar tr:last").hide().show("slow");
+		event.preventDefault();
 		$("#subject-form").prop("value", ""); //limpa o campo após submeter
 	});
 	//Selecionar assunto
@@ -42,16 +48,22 @@ $(document).ready(function() {
 				return false;
 			}
 		});
+		var subjects = 0;
 		if(selected == false) {
 			$("#assuntos-para-estudar td").each(function() {
 				if($(this).attr("class") == 'info') {
+					if(selected == true) {
+						subjects = 2;
+						return false;
+					}
+					subjects = 1;
 					selected = true;
-					return false;
 				}
 			});
 		}
 		$("#remove-subject").prop("disabled", (selected == false));
 		$("#add-to-studied").prop("disabled", (selected == false || selectedAStudied == true));
+		$("#yt-search").prop("disabled", subjects != 1);
 	});
 	
 	//Remover
@@ -65,9 +77,20 @@ $(document).ready(function() {
 		$("#assuntos-para-estudar td").each(function() {
 			if($(this).attr("class") == 'info') {
 				$("#assuntos-estudados").append("<tr><td class='success'>" + $(this).text() + "</td></tr>");
+				$("#assuntos-estudados tr:last").hide().show("slow");
 			}
 		});
 		removeAssuntos();
 	});
 
+	$("#yt-search").on("click", function() {
+		var subject = '';
+		$("#assuntos-para-estudar td").each(function() {
+			if($(this).attr("class") == 'info') {
+				subject = $(this).text();
+				return false;
+			}
+		});
+		window.open('http://www.youtube.com/results?search_query=' + subject, '_blank');
+	});
 });

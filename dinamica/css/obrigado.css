@@ -15,3 +15,7 @@ th {
 .btn {
 	margin: 5px;
 }
+
+#subjects {
+	display: none;
+}

@@ -91,6 +91,6 @@ $(document).ready(function() {
 				return false;
 			}
 		});
-		window.open('/www.youtube.com/results?search_query=' + subject, '_blank');
+		window.open('http://www.youtube.com/results?search_query=' + subject, '_blank');
 	});
 });

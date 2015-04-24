@@ -1,5 +1,5 @@
 body {
-	padding-top: 50px;
+	padding-top: 100px;
 }
 .starter-template {
 	padding: 40px 15px;
@@ -7,4 +7,8 @@ body {
 }
 .tools {
 	text-align: left;
+}
+
+p {
+	text-indent: 30px;
 }

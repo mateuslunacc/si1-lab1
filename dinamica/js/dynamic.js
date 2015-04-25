@@ -1,15 +1,24 @@
 function removeAssuntos () {
 	$("td").each(function() {
 		if($(this).attr("class") == 'info') {
+			if ($(this).parent().parent().attr("id") == 'assuntos-estudados'){
+				$("#numOfSubjectsLearned").text(--numOfSubjectsLearned);
+			} else {
+				$("#numOfSubjectsToLearn").text(--numOfSubjectsToLearn);
+			}
 			$(this).hide("slow", function() {
 				$(this).remove();
 			});
 		}
 	});
+	
 	$("#remove-subject").prop("disabled", true);
 	$("#add-to-studied").prop("disabled", true);
 	$("#yt-search").prop("disabled", true);
 }
+
+var numOfSubjectsToLearn = 0;
+var numOfSubjectsLearned = 0;
 
 $(document).ready(function() {
 	//Adicionar assunto
@@ -17,7 +26,8 @@ $(document).ready(function() {
 		$("#subjects").show("slow");
 		
 		$("#assuntos-para-estudar").append("<tr><td class='warning'>" + $(".form-control").val() + "</td></tr>");
-		$("#assuntos-para-estudar tr:last").hide().show("slow");
+		$("#assuntos-para-estudar tr:last").hide().show("slow"); //animação
+		$("#numOfSubjectsToLearn").text(++numOfSubjectsToLearn); //adiciona o numero da lista
 		event.preventDefault();
 		$("#subject-form").prop("value", ""); //limpa o campo após submeter
 	});
@@ -78,6 +88,7 @@ $(document).ready(function() {
 			if($(this).attr("class") == 'info') {
 				$("#assuntos-estudados").append("<tr><td class='success'>" + $(this).text() + "</td></tr>");
 				$("#assuntos-estudados tr:last").hide().show("slow");
+				$("#numOfSubjectsLearned").text(++numOfSubjectsLearned); //adiciona o numero da lista
 			}
 		});
 		removeAssuntos();

@@ -19,3 +19,8 @@ th {
 #subjects {
 	display: none;
 }
+
+.badge {
+	position: absolute;
+	right: 25px;
+}

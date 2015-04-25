@@ -24,10 +24,10 @@ $(document).ready(function() {
 	//Adicionar assunto
 	$(".form-horizontal").submit(function(event) {
 		$("#subjects").show("slow");
-		
+
 		$("#assuntos-para-estudar").append("<tr><td class='warning'>" + $(".form-control").val() + "</td></tr>");
 		$("#assuntos-para-estudar tr:last").hide().show("slow"); //animação
-		$("#numOfSubjectsToLearn").text(++numOfSubjectsToLearn); //adiciona o numero da lista
+		$("#numOfSubjectsToLearn").text(++numOfSubjectsToLearn); //adiciona o numero a lista
 		event.preventDefault();
 		$("#subject-form").prop("value", ""); //limpa o campo após submeter
 	});
@@ -79,7 +79,6 @@ $(document).ready(function() {
 	//Remover
 	$("#remove-subject").on("click", function() {
 		removeAssuntos();
-		$("#remove-subject").prop("disabled", true);
 	});
 
 	//Adicionar para assuntos estudados
@@ -87,13 +86,14 @@ $(document).ready(function() {
 		$("#assuntos-para-estudar td").each(function() {
 			if($(this).attr("class") == 'info') {
 				$("#assuntos-estudados").append("<tr><td class='success'>" + $(this).text() + "</td></tr>");
-				$("#assuntos-estudados tr:last").hide().show("slow");
-				$("#numOfSubjectsLearned").text(++numOfSubjectsLearned); //adiciona o numero da lista
+				$("#assuntos-estudados tr:last").hide().show("slow"); //animação
+				$("#numOfSubjectsLearned").text(++numOfSubjectsLearned); //adiciona o numero a lista
 			}
 		});
 		removeAssuntos();
 	});
 
+	//busca assunto no youtube
 	$("#yt-search").on("click", function() {
 		var subject = '';
 		$("#assuntos-para-estudar td").each(function() {
